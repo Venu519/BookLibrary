@@ -21,7 +21,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.dataSource = self
         presentedRow = 1
         
-        self.navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.1628546715, green: 0.183034271, blue: 0.5515783429, alpha: 1)
+        self.navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.2351517379, green: 0.09920636564, blue: 0.3827108145, alpha: 1)
         self.navigationController?.navigationBar.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         self.navigationItem.title = "Menu"
