@@ -150,7 +150,6 @@
 			isa = PBXGroup;
 			children = (
 				AB257A311ED2AD9700A28615 /* AppDelegate.swift */,
-				AB257A381ED2AD9800A28615 /* BookLibrary.xcdatamodeld */,
 				AB2F79421ED2BD4E009DE9D2 /* Controller */,
 				AB2F79431ED2BD4E009DE9D2 /* Model */,
 				AB2F79441ED2BD4E009DE9D2 /* Resources */,
@@ -194,6 +193,7 @@
 		AB2F79431ED2BD4E009DE9D2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AB257A381ED2AD9800A28615 /* BookLibrary.xcdatamodeld */,
 				AB2F79481ED2C102009DE9D2 /* GCDUpdates.swift */,
 				AB2F79461ED2BDDE009DE9D2 /* ClientNetworking.swift */,
 			);
@@ -831,7 +831,8 @@
 				AB257A391ED2AD9800A28615 /* BookLibrary.xcdatamodel */,
 			);
 			currentVersion = AB257A391ED2AD9800A28615 /* BookLibrary.xcdatamodel */;
-			path = BookLibrary.xcdatamodeld;
+			name = BookLibrary.xcdatamodeld;
+			path = ../BookLibrary.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

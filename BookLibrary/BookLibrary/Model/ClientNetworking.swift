@@ -11,10 +11,7 @@ import Foundation
 // Mark: Networking
 
 func taskForGetBooksList(completionHandlerForGET: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) -> URLSessionDataTask {
-    var urlStr = "https://gist.githubusercontent.com/mdunbavan/9f4a6f9795e89110859a0d72aebcb589/raw/fcc7b2c4590453eed41def69c02829165c52143d/books.json"
-    /*if itemId == itemId && itemId != -1{
-        urlStr = Constants.HackerNews.APIBaseURL + "item/" + String(describing: itemId) + ".json"
-    }*/
+    var urlStr = "https://gist.githubusercontent.com/Venu519/56b6fe6555e6fad72bf049c25c2cdeb8/raw/c86c08c686b1f31e72336afab8fcae497b13f2a4/books.json"
     
     let url = URL(string: urlStr)
     let request = URLRequest(url: url!)

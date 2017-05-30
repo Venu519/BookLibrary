@@ -25,13 +25,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SWRevealViewControllerDel
         let rearViewController = MenuViewController()
         
         let frontNavigationController = UINavigationController.init(rootViewController: frontViewController)
-//        let rearNavigationController = UINavigationController.init(rootViewController: rearViewController)
+        let rearNavigationController = UINavigationController.init(rootViewController: rearViewController)
         
-        let revealController = SWRevealViewController.init(rearViewController: rearViewController, frontViewController: frontNavigationController)
+        let revealController = SWRevealViewController.init(rearViewController: rearNavigationController, frontViewController: frontNavigationController)
         revealController?.delegate = self
-        
-        //revealController.bounceBackOnOverdraw=NO;
-        //revealController.stableDragOnOverdraw=YES;
         
         self.viewController = revealController
         

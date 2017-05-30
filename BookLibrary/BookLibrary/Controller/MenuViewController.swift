@@ -20,12 +20,15 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.delegate = self
         tableView.dataSource = self
         presentedRow = 1
-        // Do any additional setup after loading the view.
+        
+        self.navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.1628546715, green: 0.183034271, blue: 0.5515783429, alpha: 1)
+        self.navigationController?.navigationBar.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        self.navigationItem.title = "Menu"
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -35,22 +38,19 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "Cell"
         var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
-        let row = indexPath.row
         
         if (nil == cell)
         {
             cell = UITableViewCell.init(style: .default, reuseIdentifier: cellIdentifier)
         }
-        
+        cell?.backgroundColor = UIColor.clear
         cell?.textLabel?.text = NSLocalizedString( list[indexPath.row], tableName: nil, comment: "" )
         
         return cell!;
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // Grab a handle to the reveal controller, as if you'd do with a navigtion controller via self.navigationController.
         let revealViewController = self.revealViewController()
-        // selecting row
         let row = indexPath.row
         let frontViewControl = ((revealViewController?.frontViewController as! UINavigationController).viewControllers.first) as! FrontViewController
         frontViewControl.title = list[indexPath.row]
@@ -60,37 +60,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
             frontViewControl.fetchDataForFavorites(isFavorites: false)
         }
         revealViewController?.setFrontViewPosition(.left, animated: true)
-        
-        // if we are trying to push the same row or perform an operation that does not imply frontViewController replacement
-        // we'll just set position and return
-        
-        // otherwise we'll create a new frontViewController and push it with animation
-        
-//        UIViewController *newFrontController = nil;
-//        
-//        if (row == 0)
-//        {
-//            newFrontController = [[FrontViewController alloc] init];
-//        }
-//            
-//        else if (row == 1)
-//        {
-//            newFrontController = [[MapViewController alloc] init];
-//        }
-//        
-//        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:newFrontController];
-//        [revealController pushFrontViewController:navigationController animated:YES];
-//        
-        presentedRow = row;  // <- store the presented row
+        presentedRow = row;
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

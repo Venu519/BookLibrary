@@ -23,7 +23,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="zEo-ri-Mlb">
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="zEo-ri-Mlb">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="380"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="z6R-rf-cEh">
@@ -57,7 +57,7 @@
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" red="0.29756864905357361" green="0.6591411828994751" blue="0.36079829931259155" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.23515173789999999" green="0.099206365640000002" blue="0.3827108145" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="6Om-1Q-Qeb" firstAttribute="top" secondItem="zEo-ri-Mlb" secondAttribute="bottom" constant="66" id="2lH-PO-JBp"/>
                 <constraint firstAttribute="trailing" secondItem="zEo-ri-Mlb" secondAttribute="trailing" id="9CX-u7-7F2"/>
