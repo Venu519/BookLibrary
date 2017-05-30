@@ -14,10 +14,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SWRevealViewControllerDel
 
     var window: UIWindow?
     var viewController: UIViewController?
+    var appCache:NSCache<AnyObject, AnyObject>!
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        self.appCache = NSCache()
         let window = UIWindow.init(frame: UIScreen.main.bounds)
         self.window = window;
         

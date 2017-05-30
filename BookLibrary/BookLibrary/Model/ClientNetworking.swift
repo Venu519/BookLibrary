@@ -62,6 +62,17 @@ func convertDataWithCompletionHandler(_ data: Data, completionHandlerForConvertD
     completionHandlerForConvertData(parsedResult, nil)
 }
 
+func imageFromServerURL(urlString: String, completion:@escaping (_ result: UIImage?, _ error: NSError?) -> Void) {
+    URLSession.shared.dataTask(with: NSURL(string: urlString)! as URL, completionHandler: { (data, response, error) -> Void in
+        
+        if error != nil {
+            completion(nil, error as NSError?)
+            return
+        }
+        completion(UIImage(data: data!)!, nil)
+    }).resume()
+}
+
 
 
 

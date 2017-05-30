@@ -49,11 +49,12 @@ class FrontViewController: UIViewController, UICollectionViewDelegate, UICollect
     override func viewDidLoad() {
         super.viewDidLoad()
         self.edgesForExtendedLayout = []
-        
-        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
         session = URLSession.shared
         task = URLSessionDownloadTask()
-        self.cache = NSCache()
+        self.cache = appDelegate.appCache
         
         getBooksList()
         let layout = UPCarouselFlowLayout()
@@ -279,20 +280,3 @@ class FrontViewController: UIViewController, UICollectionViewDelegate, UICollect
         }
     }
 }
-
-extension UIImageView {
-    public func imageFromServerURL(urlString: String) {
-        
-        URLSession.shared.dataTask(with: NSURL(string: urlString)! as URL, completionHandler: { (data, response, error) -> Void in
-            
-            if error != nil {
-                print(error)
-                return
-            }
-            DispatchQueue.main.async(execute: { () -> Void in
-                let image = UIImage(data: data!)
-                self.image = image
-            })
-            
-        }).resume()
-}}

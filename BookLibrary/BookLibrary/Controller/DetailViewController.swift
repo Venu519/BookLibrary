@@ -22,15 +22,53 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.edgesForExtendedLayout = []
-        bookAvatar.imageFromServerURL(urlString: book.bookAvatar!)
+        self.navigationItem.title = "Book Details"
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        //Download Book Avatar
+        if (appDelegate.appCache.object(forKey: book.bookId as AnyObject) != nil){
+            print("Cached image used, no need to download it")
+            bookAvatar.image = appDelegate.appCache.object(forKey: book.bookId as AnyObject) as? UIImage
+        }else{
+            // 3
+            let bookUrl = book.bookAvatar!
+            imageFromServerURL(urlString: bookUrl, completion: { (image, error) in
+                if error != nil {
+                    print(error)
+                    return
+                }
+                DispatchQueue.main.async(execute: { () -> Void in
+                    appDelegate.appCache.setObject(image!, forKey: self.book.bookId as AnyObject)
+                    self.bookAvatar.image = image
+                })
+            })
+        }
         bookTitle.text = book.title
         bookDesc.text = book.bookdesc
-        authorAvatar.imageFromServerURL(urlString: book.authorAvatar!)
+        
+        //Download Author Avatar
+        if (appDelegate.appCache.object(forKey: book.authorName as AnyObject) != nil){
+            print("Cached image used, no need to download it")
+            authorAvatar.image = appDelegate.appCache.object(forKey: book.authorName as AnyObject) as? UIImage
+        }else{
+            // 3
+            let bookUrl = book.authorAvatar!
+            imageFromServerURL(urlString: bookUrl, completion: { (image, error) in
+                if error != nil {
+                    print(error)
+                    return
+                }
+                DispatchQueue.main.async(execute: { () -> Void in
+                    appDelegate.appCache.setObject(image!, forKey: self.book.authorName as AnyObject)
+                    self.authorAvatar.image = image
+                })
+            })
+        }
         authorName.text = book.authorName
         bookExcerpt.text = book.excerpt
         updateFavBtn()
         authorAvatar.layer.cornerRadius = max(authorAvatar.frame.size.width, authorAvatar.frame.size.height) / 2
-        // Do any additional setup after loading the view.
     }
     
     func updateFavBtn(){
