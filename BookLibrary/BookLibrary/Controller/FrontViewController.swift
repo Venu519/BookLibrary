@@ -16,6 +16,9 @@ class FrontViewController: UIViewController, UICollectionViewDelegate, UICollect
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subTitle: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
+    var cache:NSCache<AnyObject, AnyObject>!
+    var session: URLSession!
+    var task: URLSessionDownloadTask!
     var dataSource = [BookObj]()
     
     fileprivate var currentPage: Int = 0 {
@@ -46,6 +49,12 @@ class FrontViewController: UIViewController, UICollectionViewDelegate, UICollect
     override func viewDidLoad() {
         super.viewDidLoad()
         self.edgesForExtendedLayout = []
+        
+        
+        session = URLSession.shared
+        task = URLSessionDownloadTask()
+        self.cache = NSCache()
+        
         getBooksList()
         let layout = UPCarouselFlowLayout()
         layout.itemSize = CGSize(width: 200, height: 200)
@@ -115,7 +124,29 @@ class FrontViewController: UIViewController, UICollectionViewDelegate, UICollect
     {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath) as! CollectionViewCell
         let book = dataSource[(indexPath as NSIndexPath).row]
-        cell.imageView.imageFromServerURL(urlString: book.bookAvatar!)
+        cell.imageView?.image = UIImage(named: "placeholder")
+        
+        //Download Image
+        if (self.cache.object(forKey: book.bookId as AnyObject) != nil){
+            print("Cached image used, no need to download it")
+            cell.imageView?.image = self.cache.object(forKey: book.bookId as AnyObject) as? UIImage
+        }else{
+            // 3
+            let bookUrl = book.bookAvatar!
+            URLSession.shared.dataTask(with: NSURL(string: bookUrl)! as URL, completionHandler: { (data, response, error) -> Void in
+                
+                if error != nil {
+                    print(error)
+                    return
+                }
+                DispatchQueue.main.async(execute: { () -> Void in
+                    let img:UIImage! = UIImage(data: data!)
+                    self.cache.setObject(img, forKey: book.bookId as AnyObject)
+                    cell.imageView?.image = img
+                })
+                
+            }).resume()
+        }
         return cell
     }
     
@@ -230,8 +261,17 @@ class FrontViewController: UIViewController, UICollectionViewDelegate, UICollect
                 self.dataSource.removeAll()
                 for item in fetchResults {
                     dataSource.append(item)
-                    collectionView.reloadData()
                 }
+                collectionView.reloadData()
+                var book = BookObj()
+                if self.dataSource.count - 1 < self.currentPage {
+                    book = self.dataSource[self.dataSource.count-1]
+                }else{
+                    book = self.dataSource[self.currentPage]
+                }
+                
+                self.titleLabel.text = book.title?.uppercased()
+                self.subTitle.text = book.bookdesc?.uppercased()
             }
         }
         catch{
@@ -255,4 +295,4 @@ extension UIImageView {
             })
             
         }).resume()
-    }}
+}}
