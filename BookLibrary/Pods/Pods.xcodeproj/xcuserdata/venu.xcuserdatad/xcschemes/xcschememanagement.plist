@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Pods-BookLibrary.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-BookLibraryTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-BookLibraryUITests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>UPCarouselFlowLayout.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>729E84C108ECC4B95199009EAA1E7896</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>80DD59EC882455166F27D983FD9DD41E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>966A4ADACA3B6ECFFB93F1CC775C9918</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E4C384ABF0C6162E32B3F51E3658B184</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

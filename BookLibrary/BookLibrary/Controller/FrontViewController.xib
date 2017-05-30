@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FrontViewController" customModule="BookLibrary" customModuleProvider="target">
+            <connections>
+                <outlet property="collectionView" destination="zEo-ri-Mlb" id="m2m-vi-yKu"/>
+                <outlet property="refreshControl" destination="nNk-Yw-9Fi" id="fFk-Pp-6Rf"/>
+                <outlet property="subTitle" destination="OwU-qY-PEb" id="mMM-Af-Sz1"/>
+                <outlet property="titleLabel" destination="6Om-1Q-Qeb" id="vhp-6S-9tH"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="zEo-ri-Mlb">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="380"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="z6R-rf-cEh">
+                        <size key="itemSize" width="200" height="200"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="sideItemScale">
+                                <real key="value" value="0.59999999999999998"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="sideItemAlpha">
+                                <real key="value" value="0.40000000000000002"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Subtitle" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OwU-qY-PEb">
+                    <rect key="frame" x="16" y="486" width="343" height="73"/>
+                    <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="14"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="nNk-Yw-9Fi">
+                    <rect key="frame" x="169" y="315" width="37" height="37"/>
+                </activityIndicatorView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Om-1Q-Qeb">
+                    <rect key="frame" x="16" y="446" width="343" height="21"/>
+                    <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="30"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.29756864905357361" green="0.6591411828994751" blue="0.36079829931259155" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="6Om-1Q-Qeb" firstAttribute="top" secondItem="zEo-ri-Mlb" secondAttribute="bottom" constant="66" id="2lH-PO-JBp"/>
+                <constraint firstAttribute="trailing" secondItem="zEo-ri-Mlb" secondAttribute="trailing" id="9CX-u7-7F2"/>
+                <constraint firstAttribute="trailing" secondItem="nNk-Yw-9Fi" secondAttribute="trailing" constant="169" id="9h4-8c-7Is"/>
+                <constraint firstItem="6Om-1Q-Qeb" firstAttribute="centerX" secondItem="zEo-ri-Mlb" secondAttribute="centerX" id="AgR-TK-VPU"/>
+                <constraint firstItem="nNk-Yw-9Fi" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="169" id="GPG-Bf-43y"/>
+                <constraint firstItem="6Om-1Q-Qeb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="KCP-Ce-EvZ"/>
+                <constraint firstItem="OwU-qY-PEb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="OKH-Hg-BUY"/>
+                <constraint firstItem="OwU-qY-PEb" firstAttribute="top" secondItem="6Om-1Q-Qeb" secondAttribute="bottom" constant="19" id="gx3-G8-eGT"/>
+                <constraint firstItem="nNk-Yw-9Fi" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="315" id="iJe-9D-F2y"/>
+                <constraint firstAttribute="bottom" secondItem="nNk-Yw-9Fi" secondAttribute="bottom" constant="315" id="ik8-ox-4dQ"/>
+                <constraint firstItem="OwU-qY-PEb" firstAttribute="centerX" secondItem="zEo-ri-Mlb" secondAttribute="centerX" id="kbo-3H-3T0"/>
+                <constraint firstItem="zEo-ri-Mlb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="u2p-Xb-aCD"/>
+                <constraint firstItem="zEo-ri-Mlb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="wT7-Py-hq8"/>
+                <constraint firstAttribute="bottom" secondItem="zEo-ri-Mlb" secondAttribute="bottom" constant="287" id="wua-Zg-Mri"/>
+            </constraints>
+            <point key="canvasLocation" x="33.5" y="54.5"/>
+        </view>
+    </objects>
+</document>
