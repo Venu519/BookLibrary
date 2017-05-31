@@ -62,5 +62,4 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         revealViewController?.setFrontViewPosition(.left, animated: true)
         presentedRow = row;
     }
-
 }
